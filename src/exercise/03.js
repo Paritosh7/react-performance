@@ -13,6 +13,7 @@ function Menu({
   highlightedIndex,
   selectedItem,
 }) {
+  console.log('I am being called again')
   return (
     <ul {...getMenuProps()}>
       {items.map((item, index) => (
@@ -31,6 +32,7 @@ function Menu({
   )
 }
 // 🐨 Memoize the Menu here using React.memo
+Menu = React.memo(Menu)
 
 function ListItem({
   getItemProps,
@@ -40,6 +42,7 @@ function ListItem({
   highlightedIndex,
   ...props
 }) {
+  console.log('ListItem')
   const isSelected = selectedItem?.id === item.id
   const isHighlighted = highlightedIndex === index
   return (
@@ -57,6 +60,7 @@ function ListItem({
   )
 }
 // 🐨 Memoize the ListItem here using React.memo
+ListItem = React.memo(ListItem)
 
 function App() {
   const forceRerender = useForceRerender()
